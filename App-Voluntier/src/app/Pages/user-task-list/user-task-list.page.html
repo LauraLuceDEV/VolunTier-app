@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-button ion-button icon-only (click)="goBackPage()">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>My Task List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="bg-white ion-text-center">
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngIf="showButonCreateTask">
+          <ion-button expand="block" class="radio-button mg-075rem" color="secondary" (click)="goToCreateTaskForm()">
+            <ion-icon name="add-circle-outline" class="mg-right-1rem"></ion-icon>
+            <p>CREATE NEW TASK</p>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="bounce-out-right" size="12">
+          <img src="../../../assets/icons/swipe-left.png" alt="swipe-left" class="img-swipe">
+          <ion-text class="text-style">Swipe for options</ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <task-list></task-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

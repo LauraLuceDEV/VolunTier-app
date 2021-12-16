@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="{{ userType === 'voluntary' ? 'danger' : 'success'}}">
+    <ion-title>Complain Form</ion-title>
+    <ion-buttons slot="start">
+      <ion-button ion-button icon-only (click)="goBackPage()">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="bg-white ion-text-center">
+    <ion-grid>
+      <!--FORMULARIO-->
+      <form [formGroup]="complainRegretForm" (ngSubmit)="addNewComplainOrRegret()" >
+        <div class="container-img-form-voluntary">
+          <!--Descripción de la queja o la excusa-->
+          <ion-row>
+            <ion-col>
+                <ion-textarea class="bg-white color-dark-blue fs-1rem fw-600" formControlName="description" rows="6" cols="20"
+                placeholder="expose your complain" maxlength="200">
+                </ion-textarea>
+            </ion-col>
+          </ion-row>
+          <!--// Descripción de la queja o la excusa-->
+
+          <!--Si es denunciable o no-->
+          <ion-row *ngIf="this.modeForm != 'regret'">
+            <ion-col>
+              <ion-item>
+                <ion-label>Reportable</ion-label>
+                <ion-toggle (ionChange)="reportableClaim($event)"></ion-toggle>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-button
+              expand="full"
+              class="radio-button mg-075rem text-align-center"
+              color="warning"
+              (click)="addNewComplainOrRegret()">
+              <p class="fw-600">TAKE THE TASK</p>
+          </ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </form>
+    </ion-grid>
+  </ion-card>
+</ion-content>

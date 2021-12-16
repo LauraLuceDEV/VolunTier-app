@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button ion-button icon-only (click)="goBackPage()">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Tutor {{styleFormHead}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary">
+  <ion-card class="bg-white ion-text-center">
+    <ion-grid>
+ <!--FORMULARIO-->
+ <form [formGroup]="this.tutorForm">
+      <!--Aqui irá de fondo la imagen-->
+      <div class="container-img-form-voluntary">
+        <!--NOMBRE-->
+      <ion-row>
+        <ion-col>
+          <p class="color-dark-brown title-form">PERSONAL DATA</p>
+          <ion-item color="tertiary">
+            <ion-icon name="person-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input placeholder="Name" formControlName="name" class="color-dark-brown" maxlength="30"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--FIN NOMBRE-->
+
+      <!--APELLIDOS-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="person-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input placeholder="Surname"formControlName="surname" class="color-dark-brown"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--FIN APELLIDOS-->
+      </div>
+      
+       <!--FECHA NACIMIENTO-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+        <ion-label class="color-dark-brown" position="floating">Birthdate</ion-label>
+        <ion-datetime class="color-dark-brown" formControlName="birthdate" displayFormat="DD/MM/YYYY" min="1950-01-01" max="2010-01-01" value="2003-01-01"></ion-datetime>
+      </ion-item>
+      </ion-col>
+      </ion-row>
+      <!--// FECHA NACIMIENTO-->
+
+      <!--SEXO-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="transgender-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-label class="color-dark-brown">SEX</ion-label>
+            
+              <ion-select value="No choosen" class="color-dark-brown" formControlName="sex">
+                <ion-select-option *ngFor="let sex of typeSexList" value="{{sex}}">{{sex}}</ion-select-option>
+              </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--FIN SEXO-->
+
+
+      <!--PHONE NUMBER-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="phone-portrait-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input type="number" maxlength="9" formControlName="phoneNumber" placeholder="Phone Number" class="color-dark-brown"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--FIN PHONE NUMBER-->
+
+
+      <!--DNI-->
+      <!--Sólo será visible a la hora de registrarse, este dato no se cambiará-->
+      <ion-row *ngIf="isInRegistrationFormMode">
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="card-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input type="text"  formControlName="ID" placeholder="ID Card Number" class="color-dark-brown"></ion-input>
+          </ion-item>
+          <div>
+            <p class="color-aquamarine no-data-style" (click)="presenID_Information()">I DO NOT WANT TO GIVE THIS DATA</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!--FIN DNI-->
+      </form>
+    </ion-grid>
+
+
+    <!--BOTÓN COMPLETAR FORMULARIO-->
+    <ion-row>
+      <ion-col>
+        <div *ngIf="isInRegistrationFormMode; then registrationTemplate else updateTemplate">Esto no se va a mostrar nunca</div>
+
+        <!--Si el formulario esta en 'modo-registro'-->
+        <ng-template #registrationTemplate>
+          <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="warning" (click)="saveDataForm()">
+            <p>CONTINUE</p>
+          </ion-button>
+        </ng-template>
+      
+          <!--Si el formulario esta en 'modo-edición de perfil'-->
+        <ng-template #updateTemplate>
+          <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="warning" (click)="saveDataForm()">
+            <p>SAVE CHANGES</p>
+           </ion-button>
+        
+           <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="warning" (click)="deleteMyTutor()">
+            <p>DELETE TUTOR</p>
+           </ion-button>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+    <!--FIN BOTÓN COMPLETAR FORMULARIO-->
+  </ion-card>        
+</ion-content>

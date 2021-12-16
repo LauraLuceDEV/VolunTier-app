@@ -1,0 +1,29 @@
+.circle-tag-normal {
+    display: inline-table;
+    width: 5rem;
+    height: 5rem;
+    background: #ececf4;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 5rem;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.circle-tag-selected {
+    display: inline-table;
+    width: 5rem;
+    height: 5rem;
+    background: #fe5e33;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 5rem;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.bg-img-bg2{
+    --background: none;
+    background-image: url('/assets/img/background2.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,32 @@
+  <ion-refresher slot="fixed" (ionStart)="loadTasks()" (ionRefresh)="loadTasks()">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-card *ngFor="let task of userTasks">
+      <ion-item-sliding color="tertiary">
+        <ion-item color="tertiary" (click)="goToTaskDetails(task.docID, task.petitionerDOC_ID)">
+          <ion-label>
+            <h2 class="color-aquamarine font-roboto fs-125rem fw-500">{{task.name}}</h2>
+            <p class="color-dark-blue fs-1rem font-roboto fw-400">{{task.description}}</p>
+          </ion-label>
+          <ion-note slot="end" class="fs-1rem font-roboto fw-500">
+            {{task.state}}
+          </ion-note>
+        </ion-item>
+
+        <!--Opciones del menú lateral-->
+        <ion-item-options side="end" color="tertiary">
+          <ion-item-option color="primary" *ngIf="userType == 'voluntary' && task.state != 'Done'" (click)="markTaskAsDone(task)">
+            <ion-icon slot="icon-only" name="checkbox-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="primary" *ngIf="userType == 'petitioner'" (click)="editTask(task)">
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="deleteTask(task)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+  </ion-list>

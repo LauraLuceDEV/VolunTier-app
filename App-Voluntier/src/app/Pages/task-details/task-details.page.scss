@@ -1,0 +1,36 @@
+/*CLASES*/
+.profile-img-dimensions {
+  height: 6rem;
+  width: 6rem;
+}
+
+.profile-icons {
+    max-width: 100%;
+    margin: 1rem 1.5rem;
+    height: 40%;
+}
+
+.bck-user{
+    background-color: #efefef;
+    max-height: 12rem;
+    min-height: 9rem;
+    height: 11rem;
+}
+
+.bck-task{
+  background-color: #fff;
+  min-height: 5rem;
+  max-height: 12rem;
+  margin-top: -1.5rem;
+  border: 0.25rem solid #ccc2b7;
+  border-radius: 5px;
+
+}
+
+ion-avatar.container-profile-pic.md.hydrated {
+  margin: 3rem 0rem 2rem 1rem;
+}
+
+ion-col.text-align-center.md.hydrated {
+  margin: 1rem 1rem 0rem -1rem;
+}

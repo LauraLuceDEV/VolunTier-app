@@ -1,0 +1,3 @@
+<div *ngIf="comments.length > 0">
+  <comment-component *ngFor="let c of comments" [comment]="c"></comment-component>
+</div>

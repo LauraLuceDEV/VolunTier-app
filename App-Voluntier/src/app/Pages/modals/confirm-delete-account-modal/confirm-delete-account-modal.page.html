@@ -1,0 +1,55 @@
+<ion-header>
+    <div *ngIf="userType === 'voluntary'; then voluntaryTemplate else petitionerTemplate">
+      Dependiendo del tipo de susario cambiará el color de la página y sus componentes
+    </div>
+     <!--Estilo para los voluntarios-->
+  <ng-template #voluntaryTemplate>
+    <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+        <ion-button ion-button icon-only (click)="goBackPage()">
+          <ion-icon name="arrow-back-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Delete Account</ion-title>
+    </ion-toolbar>
+  </ng-template>
+  <!--// Estilo para los voluntarios-->
+
+  <!--Estilo para los solicitantes-->
+  <ng-template #petitionerTemplate>
+    <ion-toolbar color="success">
+      <ion-buttons slot="start">
+        <ion-button ion-button icon-only (click)="goBackPage()">
+          <ion-icon name="arrow-back-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Delete Account</ion-title>
+    </ion-toolbar>
+  </ng-template>
+  <!--// Estilo para los solicitantes-->
+<!--// Estilo del header-->
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-card class="bg-white pd-1rem">
+      <ion-row class="ion-text-center">
+        <ion-text class="color-dark-blue fs-125rem fw-400 mg-bottom-1rem">
+          Are you sure that you want to delete this account?
+        </ion-text>
+        <ion-text class="color-aquamarine fs-1rem fw-600 mg-bottom-1rem">
+          (Your account will be deleted forever and you cannot recover it again.)
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="full" color="primary" (click)="deleteAccount()">YES</ion-button>
+        </ion-col>
+  
+        <ion-col size="6">
+          <ion-button expand="full" color="danger" (click)="exitThisPage()">NO</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ion-content>

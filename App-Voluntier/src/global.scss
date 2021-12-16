@@ -1,0 +1,474 @@
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    background-color: #ececf4 !important;
+}
+
+/*Clases Globales*/
+//Para los alert Controller
+ion-alert
+{
+ --background: #435d5f !important;
+ --color: #ececf4 !important;
+}
+
+/*Radio*/
+.radio-button{
+    --border-radius: 1rem !important;
+}
+
+.alert-btn-style{
+  --background: #16a3b2 !important;
+ --color: #16a3b2 !important;
+}
+
+.comment-toast-class{
+  --background:#54bcc4;
+  --border-color:#145885;
+  --border-radius: 5px;
+  --border-style:solid;
+  --border-width:2px;
+  --color:#fff;
+  text-align: center;
+  --max-width: 75%;
+}
+
+/*CENTRAR*/
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+.text-align-right{
+    text-align: right;
+}
+
+.text-align-left{
+    text-align: left;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.justify-content-right{
+  justify-content: right;
+}
+
+
+.aling-items-center{
+    align-items: center;
+}
+
+.aling-items-center-webkit{
+    text-align: -webkit-center;
+}
+/*MÁRGENES*/
+.mg-025rem{
+  margin: 0.25rem !important;
+}
+
+.mg-05rem{
+    margin: 0.5rem !important;
+}
+
+.mg-075rem{
+    margin: 0.75rem !important;
+}
+
+.mg-1rem{
+    margin: 1rem !important;
+}
+
+.mg-2rem{
+    margin: 2rem !important;
+}
+
+.mg-3rem{
+    margin: 3rem !important;
+}
+
+/*TOP*/
+.mg-top--2rem{
+    margin-top: -2rem !important;
+}
+.mg-top--175rem{
+    margin-top: 1.75rem !important;
+}
+
+.mg-top--125rem{
+    margin-top: -1.25rem !important;
+}
+
+.mg-top--1rem{
+    margin-top: -1rem !important;
+}
+
+.mg-top--75rem{
+    margin-top: -0.75rem !important;
+}
+
+.mg-top--05rem{
+    margin-top: -0.5rem !important;
+}
+
+.mg-top-025rem{
+    margin-top: 0.25rem !important;
+}
+
+.mg-top-05rem{
+    margin-top: 0.5rem !important;
+}
+
+.mg-top-075rem{
+    margin-top: 0.75rem !important;
+}
+
+.mg-top-1rem{
+    margin-top: 1rem !important;
+}
+
+.mg-top-2rem{
+    margin-top: 2rem !important;
+}
+
+/*LEFT*/
+.mg-left--1rem{
+  margin-left: -1rem !important;
+}
+.mg-left-025rem{
+    margin-left: 0.25rem !important;
+}
+
+.mg-left-05rem{
+    margin-left: 0.5rem !important;
+}
+
+.mg-left-075rem{
+    margin-left: 0.75rem !important;
+}
+
+.mg-left-1rem{
+    margin-left: 1rem !important;
+}
+
+.mg-left-125rem{
+    margin-left: 1.25rem !important;
+}
+
+.mg-left-15rem{
+    margin-left: 1.5rem !important;
+}
+
+.mg-left-175rem{
+    margin-left: 1.75rem !important;
+}
+
+.mg-left-2rem{
+    margin-left: 2rem !important;
+}
+
+.mg-right-1rem{
+    margin-right: 1rem !important;
+}
+
+.mg-bottom-1rem{
+    margin-bottom: 1rem !important;
+}
+
+/*PADDINGS*/
+.pd-05rem{
+    padding: 0.5rem !important;
+}
+
+.pd-075rem{
+    padding: 0.75rem !important;
+}
+
+.pd-1rem{
+    padding: 1rem !important;
+}
+
+.pd-2rem{
+    padding: 2rem !important;
+}
+
+.pd-left--05rem{
+  padding: -0.5rem !important;
+}
+
+.pd-left--1rem{
+  padding: -1rem !important;
+}
+
+.pd-left-05rem{
+  padding: 0.5rem !important;
+}
+
+.pd-left-1rem{
+  padding: 1rem !important;
+}
+
+
+/*FONDOS*/
+.bg-gelb{
+    background-color: #ffc641 !important;
+}
+
+.bg-mandarine{
+    background-color: #fe5e33 !important;
+}
+
+.bg-pinkie{
+    background-color: #ff87a2 !important;
+}
+
+.bg-aquamarine{
+    background-color: #16a2b29c !important;
+}
+
+.bg-aquamarine-transp{
+  background-color: #16a3b257 !important;
+}
+
+.bg-dark-blue{
+    background-color: #111747 !important;
+}
+.bg-light-blue{
+    background-color: #ececf4 !important;
+}
+
+.bg-white{
+background-color: #fff!important;
+}
+
+/*COLORES*/
+.color-gelb{
+    color: #ffc641 !important;
+}
+
+.color-mandarine{
+    color: #fe5e33 !important;
+}
+
+.color-pinkie{
+    color: #ff87a2 !important;
+}
+
+.color-aquamarine{
+    color: #16a3b2 !important;
+}
+
+.color-dark-blue{
+    color: #111747 !important;
+}
+.color-light-blue{
+    color: #ececf4 !important;
+}
+
+.color-white{
+color: #fff!important;
+}
+
+/*Voluntarios- colores*/
+.color-dark-brown{
+    color: #8a1818 !important;
+}
+
+/*------------- FUENTES ----------------*/
+/*FONT WEIGHT - PESO FUENTE*/
+.fw-100{
+    font-weight: 100 !important;
+}
+
+.fw-200{
+    font-weight: 200 !important;
+}
+
+
+.fw-300{
+    font-weight: 300 !important;
+}
+
+
+.fw-400{
+    font-weight: 400 !important;
+}
+
+
+.fw-500{
+    font-weight: 500 !important;
+}
+
+
+.fw-600{
+    font-weight: 600 !important;
+}
+
+
+/*FONT SIZE - TAMANNO FUENTE*/
+
+.fs-025rem{
+    font-size: 0.25rem !important;
+}
+
+.fs-05rem{
+    font-size: 0.5rem !important;
+}
+
+.fs-075rem{
+    font-size: 0.75rem !important;
+}
+
+.fs-1rem{
+    font-size: 1rem !important;
+}
+
+.fs-115rem{
+    font-size: 1.15rem !important;
+}
+
+.fs-125rem{
+    font-size: 1.25rem !important;
+}
+
+.fs-15rem{
+    font-size: 1.5rem !important;
+}
+
+.fs-175rem{
+    font-size: 1.75rem !important;
+}
+
+.fs-2rem{
+    font-size: 2rem !important;
+}
+
+
+
+
+/*FONT FAMILY - TIPO LETRA*/
+
+
+/*FONT FAMILY COMPLETE*/
+.font-roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+.font-roboto2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+}
+
+.font-roboto3{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+
+.font-mukta{
+    font-family: 'Mukta', sans-serif;
+}
+
+.font-tegomin{
+    font-family: 'New Tegomin', serif;
+}
+
+.font-tegomin2{
+    font-family: "New Tegomin", serif;
+    font-weight: 550;
+    font-size: 1.75rem;
+}
+
+
+/*FLOATS/FLOTANTES*/
+.float-lft{
+    float: left !important;
+}
+
+.float-rgt{
+    float: right !important;
+}
+
+/*EFECTOS*/
+.border-white{
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+
+
+/*PARA IMAGENES*/
+.rounded-img1{
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+
+.rounded-img2{
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+
+.rounded-img3{
+    border-radius: 50% !important;
+    overflow: hidden;
+}
+
+
+/*IMAGENES*/
+.profile-img-size{
+    height: 120px;
+    width: 120px;
+}
+
+
+/*WIDTH*/
+.wkfill-available-wdt{
+    width: -webkit-fill-available;
+}
+
+ion-content{
+    --ion-background-color:#ececf4;
+}
+
+/*HEIGHT*/
+//Clases
+.alert-img{
+  height: 6em !important;
+  float: left !important;
+}
+.h-3rem{
+    height: 3rem;
+}
+.h-100{
+    height: -webkit-fill-available;
+}
+
+/*TOAST*/
+.customToastClass{
+    font-size: 1.15rem;
+    text-align: center;
+    color:#ffffff;
+    --background:#fe5e33;
+    }

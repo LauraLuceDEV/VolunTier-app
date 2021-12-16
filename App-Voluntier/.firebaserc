@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "volutierfb": {
+      "hosting": {
+        "app": [
+          "volutierfb"
+        ]
+      }
+    }
+  }
+}

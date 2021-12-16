@@ -1,0 +1,42 @@
+
+<!--Página de ajustes. Se cargarán diferentes botones con opciones dependiendo del tipo de usuario-->
+<ion-header>
+  <div *ngIf="userType === 'voluntary'; then voluntaryTemplate else petitionerTemplate">
+    Dependiendo del tipo de susario cambiará el color de la página y sus componentes
+  </div>
+  <ng-template #voluntaryTemplate>
+    <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+        <ion-button ion-button icon-only (click)="goBackPage()">
+          <ion-icon name="arrow-back-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Edit your Profile</ion-title>
+    </ion-toolbar>
+  </ng-template>
+
+  <ng-template #petitionerTemplate>
+    <ion-toolbar color="success">
+      <ion-buttons slot="start">
+        <ion-button ion-button icon-only (click)="goBackPage()">
+          <ion-icon name="arrow-back-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Edit your Profile</ion-title>
+    </ion-toolbar>
+  </ng-template>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-grid>
+      <ion-row *ngFor="let button of editProfileButtons | async">
+        <ion-col>
+            <ion-button expand="block" class="radio-button mg-075rem text-align-center h-3rem" color="{{button.color}}" fill="outline" (click)="selectMenuOption(button.event)">
+              {{button.name}}
+            </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Finished Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h4 class="color-aquamarine font-tegomin2 ion-text-center">CONGRATS! YOU FINISH THIS TASK SUCCESSFULLY!</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-align-self-center ion-text-center">
+        <img src="../../../assets/img/success-task-finished.png" alt="Finished Task">
+      </ion-col>
+    </ion-row>
+
+    <!--BOTONES-->
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" class="radio-button" color="primary" (click)="leaveACommentToPetitioner()">
+          <p>LEAVE A COMMENT</p>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" class="radio-button" color="danger" (click)="leaveAComplain()">
+          <p>LEAVE A COMPLAIN</p>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" class="radio-button" color="warning" (click)="returnToMyProfile()">
+          <p>RETURN TO PROFILE</p>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <!--// BOTONES -->
+  </ion-grid>
+</ion-content>

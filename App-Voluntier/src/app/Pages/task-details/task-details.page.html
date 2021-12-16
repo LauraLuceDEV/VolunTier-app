@@ -1,0 +1,156 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBackPage()">
+        <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Task Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="bg-white ion-text-center">
+    <ion-grid>
+      <!-- Datos Personales del Solicitante/Petitioner-->
+      <ion-row class="bck-user">
+        <!--Im perfil-->
+        <ion-col size="4">
+          <ion-avatar class="container-profile-pic">
+            <ion-img
+              class="rounded-img3 profile-img-dimensions mg-top--2rem"
+              src="assets/img/user-icon.png">
+            </ion-img>
+          </ion-avatar>
+        </ion-col>
+        <!--// Im perfil-->
+
+        <!--Datos Personales-->
+        <ion-col size="8" class="text-align-center">
+            <!--Estilo para el color del nombre del usuario-->
+            <ion-row id="name-qualities-container" class="justify-content-center">
+              <div>
+                <ion-label
+                  class="fw-500 fs-15rem pd-left-1rem" color="primary">
+                  {{petitioner?.name}} {{petitioner?.surname}}
+              </ion-label>
+              </div>
+            </ion-row>
+            <!--// Estilo para el color del nombre del usuario-->
+
+            <!--Container - Cualidades  img -->
+            <ion-row>
+              <ion-col size="4" *ngFor="let issue of petitionerIssues">
+                    <img class="img-item profile-icons" [src]="issue" alt="Issue-img"/>
+              </ion-col>
+            </ion-row>
+            <!--// Container - Cualidades  img -->
+        </ion-col>
+        <!--// Datos Personales-->
+      </ion-row>
+      <!--// Datos de los problemas del Solicitante/Petitioner -->
+
+      <!--Datos de la tarea-->
+      <!-- Título y descripción de la tarea-->
+      <ion-row class="bck-task">
+        <ion-col class="mg-top-1rem mg-bottom-1rem">
+          <div>
+            <ion-text color="primary" class="mg-top--1rem fw-500 fs-1rem"> {{task?.description}} </ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!--// Título y descripción de la tarea-->
+
+      <!--Mapa-->
+        <div class="container">
+          <div id="map" class="map-container"></div>
+        </div>
+      <!--// Mapa-->
+      <!--// Datos de la tarea-->
+
+      <!--Botón para añadir la tarea-->
+      <ion-row *ngIf="task?.state == 'Unassigned' && currentUser?.userType.toLowerCase() == 'voluntary'">
+        <ion-col>
+          <ion-button
+            expand="full"
+            class="radio-button mg-075rem text-align-center"
+            color="warning"
+            (click)="addTaskToVoluntary()">
+            <p class="fw-600">TAKE THE TASK</p>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <!--// Botón para añadir la tarea-->
+
+      <!--Botón para iniciar el chat de la tarea-->
+      <ion-row *ngIf="currentUser?.userType.toLowerCase() == 'voluntary'">
+        <ion-col>
+          <ion-button
+            expand="full"
+            class="radio-button mg-075rem text-align-center"
+            color="primary"
+            (click)="startChatConversation()">
+            <p class="fw-600">MESSAGE</p>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <!--// Botón para iniciar el chat de la tarea-->
+
+      <!--Botón para macar la tarea como finalizada-->
+      <ion-row *ngIf="task?.state == 'In Progress' && currentUser?.userType.toLowerCase() == 'voluntary'">
+        <ion-col>
+          <ion-button
+            expand="full"
+            class="radio-button text-align-center"
+            color="success"
+            (click)="finishTask()">
+            <p class="fw-600">FINISH TASK</p>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <!--// Botón para macar la tarea como finalizada-->
+
+      <!--Botón para macar la tarea como finalizada-->
+      <ion-row *ngIf="task?.state == 'Done' && currentUser?.userType.toLowerCase() == 'voluntary'">
+        <ion-col>
+          <ion-button
+            expand="full"
+            class="radio-button text-align-center"
+            color="warning"
+            (click)="leaveComment()">
+            <p class="fw-600">LEAVE COMMENT</p>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <!--// Botón para macar la tarea como finalizada-->
+
+      <!--Botón para editar la tarea-->
+      <ion-row *ngIf="task?.state != 'Done' && currentUser?.userType.toLowerCase() == 'petitioner'">
+        <ion-col>
+          <ion-button
+            expand="full"
+            class="radio-button text-align-center"
+            color="success"
+            (click)="editTask()">
+            <p class="fw-600">EDIT TASK</p>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <!--// Botón para editar la tarea-->
+
+      <!--Botón para eliminar la tarea-->
+      <ion-row *ngIf="task?.state != 'Unassigned'">
+        <ion-col>
+          <ion-button
+            expand="full"
+            class="radio-button text-align-center"
+            color="danger"
+            (click)="deleteTask()">
+            <p class="fw-600">DELETE TASK</p>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <!--// Botón para eliminar la tarea-->
+    </ion-grid>
+  </ion-card>
+</ion-content>

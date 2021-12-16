@@ -1,0 +1,176 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-button ion-button icon-only (click)="goBackPage()">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Voluntary Strengths</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary">
+  <ion-card class="bg-white ion-text-center">
+    <ion-grid>
+      <!--Fila del titulo-->
+      <ion-row class="bg-img-bg2 mg-1rem">
+      <ion-col>
+        <p class="color-aquamarine font-tegomin2 fs-1rem fw-600 border-white">CHOOSE THE QUALITIES WHICH DEFINE YOURSELF BEST</p>
+      </ion-col>
+      </ion-row>
+      <!--FIN Fila del titulo-->
+
+      <!--FILAS DE ELEMETOS - BOTONES-->
+      <!--Primera Fila-->
+      <ion-row>
+        <!--Primer Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addCleaningToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedCleaning, 'circle-tag-selected': selectedCleaning }">
+              <img id="img-cleaning" [src]="cleaningPic" alt="I-can-clean-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">Good at cleaning</p>
+          </div>
+          
+        </ion-col>
+        <!--Fin Primer Elemento-->
+        <!--Segundo Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addToBuyToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedBuying, 'circle-tag-selected': selectedBuying }">
+              <img id="img-buying" [src]="buyingPic" alt="I-go-shopping-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">Go shopping</p>
+          </div>
+        </ion-col>
+        <!--Fin Segundo Elemento-->
+        <!--Tercer Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addTrickyToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedTricky, 'circle-tag-selected': selectedTricky }">
+              <img id="img-tricky" [src]="trickyPic" alt="I-know-to-fix-thigs-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">Do fixing</p>
+          </div>
+        </ion-col>
+        <!--Fin Tercer Elemento-->
+      </ion-row>
+      <!--Fin Primera Fila-->
+
+      <!--Segunda Fila-->
+      <ion-row>
+        <!--Primer Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addFastToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedFast, 'circle-tag-selected': selectedFast }">
+              <img id="img-fast" [src]="fastPic" alt="fast-person-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">Fast</p>
+          </div>
+        </ion-col>
+        <!--Fin Primer Elemento-->
+        <!--Segundo Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addGiveGoodConversationToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedGoodConversation, 'circle-tag-selected': selectedGoodConversation }">
+              <img id="img-conversation" [src]="conversationPic" alt="I-can-give-good-conversation-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">Good conversation</p>
+          </div>
+        </ion-col>
+        <!--Fin Segundo Elemento-->
+        <!--Tercer
+           Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addHelpfullToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedHelp, 'circle-tag-selected': selectedHelp }">
+              <img id="img-help" [src]="helpPic" alt="I-can-help-others-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">Helpfull</p>
+          </div>
+        </ion-col>
+        <!--Fin Tercer Elemento-->
+      </ion-row>
+      <!--Fin Segunda Fila-->
+
+      <!--Tercera Fila-->
+      <ion-row>
+        <!--Primer Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addStrongToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedStrong, 'circle-tag-selected': selectedStrong }">
+              <img id="img-strong" [src]="strongPic" alt="I-am-strong-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">Strong</p>
+          </div>
+        </ion-col>
+        <!--Fin Primer Elemento-->
+        <!--Segundo Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addBabySittingToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedBabySitter, 'circle-tag-selected': selectedBabySitter }">
+              <img id="img-babysitter" [src]="babySitterPic" alt="I-know-how-to-take-care-children-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">Baby-Sittering</p>
+          </div>
+        </ion-col>
+        <!--Fin Segundo Elemento-->
+        <!--Tercer Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addKindToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedKind, 'circle-tag-selected': selectedKind }">
+              <img id="img-kind" [src]="kindPic" alt="I-am-a-kind-person-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">Kind</p>
+          </div>          
+        </ion-col>
+        <!--Fin Tercer Elemento-->
+      </ion-row>
+      <!--Fin Tercera Fila-->
+
+      <!--Cuarta Fila-->
+      <ion-row>
+        <!--Primer Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addFirstAidsToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedFirstAid, 'circle-tag-selected': selectedFirstAid }">
+              <img id="img-firstaid" [src]="firstAidsPic" alt="I-know-first-aids-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">First-Aids</p>
+          </div>
+        </ion-col>
+        <!--Fin Primer Elemento-->
+        <!--Segundo Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addOrganizationToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedOrganization, 'circle-tag-selected': selectedOrganization }">
+              <img id="img-organization" [src]="organizationPic" alt="I-am-organised-person-icon">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600">Organization</p>
+          </div>
+        </ion-col>
+        <!--Fin Segundo Elemento-->
+        <!--Tercer Elemento-->
+        <ion-col size="4">
+          <div class="container-img" (click)="addMedicineStudiesToQualities()">
+            <div [ngClass]="{ 'circle-tag-normal': !selectedMedic, 'circle-tag-selected': selectedMedic }">
+              <img id="img-medic" [src]="medicPic" alt="I-go-shoppin">
+            </div>
+            <p class="color-aquamarine fs-075rem fw-600" >Medicine-Related-Studies</p>
+          </div>
+        </ion-col>
+        <!--Fin Tercer Elemento-->
+      </ion-row>
+      <!--Fin Cuarta Fila-->
+      <!--FIN FILAS DE ELEMETOS - BOTONES-->
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="danger" (click)="goToVoluntaryFinalForm()">
+            <p>CONTINUE</p>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

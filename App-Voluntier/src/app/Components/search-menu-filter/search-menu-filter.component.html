@@ -1,0 +1,13 @@
+<ion-item color="light">
+  <ion-label>Category</ion-label>
+  <ion-select #taskCategory  okText="Okay" cancelText="Dismiss">
+    <ion-select-option *ngFor="let category of taskCategories" value="{{category}}">{{category}}</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-item color="light">
+  <ion-label>City</ion-label>
+  <ion-input #cityName (ionInput)="inputChange($event)" type="text" placeholder="{{citySuggest}}"></ion-input>
+</ion-item>
+
+<ion-button expand="full" shape="round" color="warning" (click)="searchTasks(taskCategory.value, cityName.value)">FILTER</ion-button>

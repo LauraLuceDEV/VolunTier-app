@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="information"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>WELCOME</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-light-blue ion-text-center">
+  <ion-card class="bg-white">
+    <div>
+      <h4 class="color-aquamarine font-tegomin2">HELPING EACH OTHER IN OUR COMMUNITY</h4>
+    </div>
+    <div class="container container-img ion-text-center">
+      <img id="img-splash-icon" src="assets/img/img-login.png" alt="imagen del login"/>
+
+      <ion-card-content>
+       <p class="color-dark-blue">We are so glad that you have taken the step to help other people and be helped, in your community.</p>
+       <p class="color-dark-blue">I hope this helps you to develop as a person and if you can contribute, to make the world a better place.</p>
+       <p class="color-dark-blue">We wish you to enjoy your experience and share it!</p>
+       <h4 id="good-luck-font" class="font-tegomin">GOOD LUCK!</h4>
+      </ion-card-content>
+
+      <hr/>
+
+      <!--Contenedor Botones-->
+      <div id="container-login-buttons" class="mg-top-2rem" [ngSwitch]="modalityMenu">
+
+        <!--Contenedor Botones Inicio-Login-->
+        <div *ngSwitchCase="'principal'">
+          <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="primary" (click)="changeToSignInContainer()">
+            <ion-icon name="person-circle-outline" class="mg-075rem"></ion-icon>
+            <p>SIGN IN</p>
+          </ion-button>
+
+          <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="primary" fill="outline" (click)="changeToSignUpContainer()">
+            <ion-icon name="log-in-outline" class="mg-075rem"></ion-icon>
+            <p>SIGN UP</p>
+          </ion-button>
+        </div>
+        <!--Fin Contenedor Botones Inicio-Login-->
+
+        <!--Contenedor Botones Inicio Sesión-->
+        <div *ngSwitchCase="'sign-in'">
+          <ion-button expand="block" class="radio-button mg-075rem" color="danger" (click)="signInGoogle()">
+            <ion-icon name="logo-google"></ion-icon>
+            <p>SIGN IN WITH GOOGLE</p>
+          </ion-button>
+
+          <ion-button expand="block" class="radio-button mg-075rem" color="secondary" (click)="signInFacebook()">
+            <ion-icon name="logo-facebook" slot="start">
+            </ion-icon>
+            <p>SIGN IN WITH FACEBOOK</p>
+          </ion-button>
+
+          <ion-button expand="block" class="radio-button mg-075rem" color="success" (click)="signInApple()">
+            <ion-icon name="logo-apple" slot="start">
+            </ion-icon>
+            <p>SIGN IN WITH APPLE</p>
+          </ion-button>
+
+          <ion-button expand="block" class="radio-button mg-075rem" color="warning" (click)="signInMail()">
+            <ion-icon name="mail" slot="start">
+            </ion-icon>
+            <p>SIGN IN WITH MAIL</p>
+          </ion-button>
+
+        <!--Botón atrás para volver al menu principal-->
+        <ion-button fill="clear" class="float-lft" (click)="changeToPrincipalContainer()">
+          <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+        </ion-button>
+
+        </div>
+        <!--Fin Contenedor Botones Inicio Sesión-->
+
+        <!--Contenedor Botones Crear Usuario/Registrarse-->
+        <div *ngSwitchCase="'sign-up'">
+          <ion-button expand="block" class="radio-button mg-075rem" color="danger" (click)="signUpGoogle()">
+            <ion-icon name="logo-google"></ion-icon>
+            <p>SIGN UP WITH GOOGLE</p>
+          </ion-button>
+
+          <ion-button expand="block" class="radio-button mg-075rem" color="secondary" (click)="signUpFacebook()">
+            <ion-icon name="logo-facebook" slot="start">
+            </ion-icon>
+            <p>SIGN UP WITH FACEBOOK</p>
+          </ion-button>
+
+          <ion-button expand="block" class="radio-button mg-075rem" color="success" (click)="signUpApple()">
+            <ion-icon name="logo-apple" slot="start">
+            </ion-icon>
+            <p>SIGN UP WITH APPLE</p>
+          </ion-button>
+
+          <ion-button expand="block" class="radio-button mg-075rem" color="warning" (click)="signUpMail()">
+            <ion-icon name="mail" slot="start">
+            </ion-icon>
+            <p>SIGN UP WITH MAIL</p>
+          </ion-button>
+
+          <!--Botón atrás para volver al menu principal-->
+          <ion-button fill="clear" class="float-lft" (click)="changeToPrincipalContainer()">
+            <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+          </ion-button>
+        </div>
+        <!--Fin Contenedor Botones Crear Usuario/Registrarse-->
+
+      </div>
+      <!--Fin Contenedor Botones-->
+    </div>
+  </ion-card>
+</ion-content>

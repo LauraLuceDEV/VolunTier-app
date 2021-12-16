@@ -1,0 +1,7 @@
+{
+  "name": "App-Voluntier",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

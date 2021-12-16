@@ -1,0 +1,17 @@
+[
+    {
+        "name": "CHANGE TUTOR DATA",
+        "color": "warning",
+        "event": "changeTutorData"
+    },
+    {
+        "name": "CHANGE PETITIONER DATA",
+        "color": "success",
+        "event": "changePetitionerData"
+    },
+    {
+        "name": "DELETE ACCOUNT",
+        "color": "primary",
+        "event": "deleteAccount"
+    }
+]

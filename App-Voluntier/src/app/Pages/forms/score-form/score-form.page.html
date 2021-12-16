@@ -1,0 +1,164 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>GIVE A SCORE</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBackPage()">
+        <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-text-center">
+      <ion-text class="fw-400 fs-1rem color-aquamarine mg-top-1rem">
+        {{userName}}´s service puntuation
+      </ion-text>
+    </ion-row>
+
+    <ion-row id="data-container" class="mg-top-1rem">
+        <ion-col size="3" class="ion-text-center">
+          <ion-avatar>
+            <ion-img src="{{userProfileImg}}"></ion-img>
+          </ion-avatar>
+          <ion-text class="mg-top-75rem color-aquamarine .fs-075rem fw-500 mg-left--1rem">
+            {{userName}}
+          </ion-text>
+        </ion-col>
+
+        <ion-col size="9" class="ion-text-center">
+          <ion-text class="fw-400 fs-125rem color-dark-blue">
+            {{currentTask?.description}}
+          </ion-text>
+        </ion-col>
+    </ion-row>
+
+     <!--Puntuacion-->
+     <div id="puntuation-container">
+      <ion-row>
+        <ion-row >
+          <ion-col>
+            <div *ngIf="!userHasPuntuation; then noPuntuationTemplate else setPuntuationTemplate"></div>
+            <!--Puntuacion inicial-->
+            <ng-template #noPuntuationTemplate>
+              <ion-button class="no-effect" color="tertiary" *ngFor="let val of buttonValues" (click)="setPuntuation(val)">
+                <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+              </ion-button>
+            </ng-template>
+            <!--// Puntuacion inicial-->
+
+            <!--Cambio de puntuación-->
+            <ng-template #setPuntuationTemplate [ngSwitch]="starPuntuation">
+              <div *ngSwitchCase="1">
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationOneStar()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationTwoStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationThreeStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationFourStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationFiveStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+                </ion-button>
+              </div>
+
+              <div *ngSwitchCase="2">
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationOneStar()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationTwoStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationThreeStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationFourStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationFiveStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+                </ion-button>
+              </div>
+
+              <div *ngSwitchCase="3">
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationOneStar()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationTwoStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationThreeStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationFourStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationFiveStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+                </ion-button>
+              </div>
+
+              <div *ngSwitchCase="4">
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationOneStar()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationTwoStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationThreeStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationFourStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationFiveStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star-outline" color="primary" class="fs-2rem"></ion-icon>
+                </ion-button>
+              </div>
+
+              <div *ngSwitchCase="5">
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationOneStar()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationTwoStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationThreeStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationFourStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+                <ion-button class="no-effect" color="tertiary" (click)="setPuntuationFiveStars()">
+                  <ion-icon class="icon-bigger" slot="icon-only"  name="star" color="warning" class="fs-2rem"></ion-icon>
+                </ion-button>
+              </div>
+            </ng-template>
+            <!--// Cambio de puntuación-->
+          </ion-col>
+        </ion-row>
+      </ion-row>
+      <ion-row class="display-block">
+        <ion-textarea #comment class="bg-white color-dark-blue fs-1rem fw-600 text-area-style" rows="6" cols="20"
+          placeholder="Give {{userName}} a comment!" maxlength="200">
+        </ion-textarea>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="warning" (click)="addAPuntuation(comment.value)">
+            <p>CONTINUE</p>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+     </div>
+
+
+    <!--Puntuacion-->
+  </ion-grid>
+</ion-content>

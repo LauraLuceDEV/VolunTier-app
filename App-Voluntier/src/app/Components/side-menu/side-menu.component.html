@@ -1,0 +1,28 @@
+  <!--MENU LATERAL-->
+  <ion-menu color="tertiary" side="end" menuId="lateral-menu" contentId="principal" [swipeGesture]="false">
+    <ion-header color="tertiary">
+      <!--Estilo del header dependiendo del tipo de usuario-->
+      <div *ngIf="userType === 'voluntary'; then voluntaryTemplate else petitionerTemplate"></div>
+      <ng-template #voluntaryTemplate>
+        <ion-toolbar color="danger" class="bg-white">
+          <ion-title>Profile Menu</ion-title>
+        </ion-toolbar>
+      </ng-template>
+
+      <ng-template #petitionerTemplate>
+        <ion-toolbar color="success">
+          <ion-title>Profile Menu</ion-title>
+        </ion-toolbar>
+      </ng-template>
+      <!--Estilo del header dependiendo del tipo de usuario-->
+    </ion-header>
+    <ion-content color="tertiary">
+      <ion-list  class="bg-white">
+        <ion-item button *ngFor="let item of items | async" (click)="onClickItemMenu(item.event)" color="tertiary">
+          <i [class]="item.icon" class="color-dark-blue fw-600"></i>
+          <p class="mg-left-075rem color-aquamarine fw-500">{{item.name}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <!--// MENU LATERAL -->

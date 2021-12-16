@@ -1,0 +1,18 @@
+<!--Componente que pertenecerá a la página 'voluntary-search-task-menu'
+  donde los usuarios voluntarios/voluntary visualizarán los diferentes tipos de tareas según
+las características que hayan escogido-->
+<app-loading [state]="state">
+  <ion-list class="bg-white">
+    <ion-card *ngFor="let task of petitionerTasks | async">
+        <ion-item color="tertiary" (click)="goToTaskDetails(task.docID, task.petitionerDOC_ID)">
+          <ion-label>
+            <h2 class="color-aquamarine font-roboto fs-125rem fw-500">{{task.name}}</h2>
+            <p class="color-dark-blue fs-1rem font-roboto fw-400">{{task.description}}</p>
+          </ion-label>
+          <ion-note slot="end" class="fs-1rem font-roboto fw-500">
+            {{task.state}}
+          </ion-note>
+        </ion-item>
+    </ion-card>
+  </ion-list>
+</app-loading>

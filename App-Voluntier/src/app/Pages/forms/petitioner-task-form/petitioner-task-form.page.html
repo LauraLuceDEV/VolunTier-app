@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button ion-button icon-only (click)="goBackPage()">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>NEW TASK</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  color="tertiary">
+  <ion-card class="bg-white ion-text-center">
+    <ion-grid>
+      <!--FORMULARIO-->
+      <form [formGroup]="this.taskForm" (ngSubmit)="addNewTask()" >
+        <!--Aqui irá de fondo la imagen-->
+        <div class="container-img-form-voluntary">
+
+          <!--Título de la tarea-->
+        <ion-row>
+          <ion-col>
+            <p class="color-dark-blue title-form fs-115rem fw-600">CREATING MY TASK</p>
+            <ion-item color="tertiary">
+              <ion-icon name="create-outline" class="color-dark-blue icon-style-form-volunt mg-right-1rem"></ion-icon>
+              <ion-input placeholder="Title" class="color-dark-blue" maxlength="30" formControlName="title"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!--// Título de la tarea-->
+
+        <!--Tipo/Categoría de tarea. Lo recorreremos de un array de categorías que es una de nuestras vriables globales-->
+        <ion-row>
+          <ion-col>
+            <ion-item color="tertiary">
+              <ion-icon name="layers-outline" class="color-dark-blue icon-style-form-volunt mg-right-1rem"></ion-icon>
+              <ion-label class="color-dark-blue">CATEGORY</ion-label>
+                <ion-select value="No choosen" class="color-dark-blue" formControlName="category">
+                  <ion-select-option *ngFor="let c of categories" value="{{c}}">{{c}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!--// Tipo/Categoría de tarea-->
+
+        <!--Descripción de la tarea-->
+        <ion-row>
+          <ion-col>
+              <ion-textarea class="bg-white color-dark-blue fs-1rem fw-600" formControlName="description" rows="6" cols="20"
+              placeholder="Brief description of the task" maxlength="200">
+              </ion-textarea>
+          </ion-col>
+        </ion-row>
+        <!--// Descripción de la tarea-->
+        <ion-row>
+          <ion-col>
+            <p class="color-dark-blue title-form fw-600">SELECT THE TASK PLACE</p>
+          </ion-col>
+        </ion-row>
+        </div>
+        </form>
+
+         <!--Dirección con mapa-->
+         <ion-row id="map-row">
+          <div id="map" class="map-container"></div>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div *ngIf="formStyle === 'update'; then updateTemplate else createTemplate"></div>
+            <ng-template #updateTemplate>
+              <ion-button expand="full" class="radio-button mg-075rem text-align-center" color="warning" (click)="updateTask()">
+                <p>SAVE TASK</p>
+              </ion-button>
+            </ng-template>
+
+            <ng-template #createTemplate>
+              <ion-button expand="full" class="radio-button mg-075rem text-align-center" color="warning" (click)="addNewTask()">
+                <p>CREATE TASK</p>
+              </ion-button>
+            </ng-template>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,13 @@
+<ng-container [ngSwitch]="state">
+  <div *ngSwitchCase="'loading'" class="ion-margin ion-text-center">
+    <ion-spinner name="bubbles"></ion-spinner>
+  </div>
+
+  <div *ngSwitchCase="'error'" class="ion-margin ion-text-center">
+    <p>Error loading</p>
+  </div>
+
+  <ng-container *ngSwitchCase="'loaded'">
+    <ng-content></ng-content>
+  </ng-container>
+</ng-container>

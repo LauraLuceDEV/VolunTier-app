@@ -1,0 +1,116 @@
+<ion-item color="tertiary">
+  <ion-grid>
+    <!--Fila de la foto de perfil del usuario y de la puntuación-->
+    <ion-row class="mg-top-025rem">
+      <ion-col size="3">
+        <div id="avatar-container" class="text-align-center">
+          <ion-avatar class="image-center">
+            <ion-img src="{{comment.userProfileImageRoute}}"></ion-img>
+          </ion-avatar>
+        </div>
+        <div id="userName-container" class="aling-items-center-webkit mg-top-025rem">
+          <ion-text color="primary">{{comment.userName}}</ion-text>
+        </div>
+      </ion-col>
+      <ion-col size="9" id="comment-puntuation-container" class="style-comment-col">
+        <!--Diferente visualización para las puntuaciones-->
+        <div id="puntuation-container" class="mg-top-025rem" [ngSwitch]="comment.userValoration">
+         <!--Cero estrellas-->
+         <div *ngSwitchCase="'superbad++'">
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+        </div>
+        <!--Media estrella-->
+        <div *ngSwitchCase="'superbad+'">
+          <ion-icon name="star-half" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+        </div>
+        <!--Una estrella-->
+        <div *ngSwitchCase="'superbad'">
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+        </div>
+        <!--Una estrella y media-->
+        <div *ngSwitchCase="'bad+'">
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-half" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+        </div>
+        <!--Dos estrellas-->
+        <div *ngSwitchCase="'bad'">
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+        </div>
+        <!--Dos estrellas y media-->
+        <div *ngSwitchCase="'nice'">
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-half" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+        </div>
+        <!--Tres estrellas-->
+        <div *ngSwitchCase="'nice+'">
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+        </div>
+        <!--Tres estrellas y media-->
+        <div *ngSwitchCase="'nice++'">
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-half" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+        </div>
+        <!--Cuatro estrellas-->
+        <div *ngSwitchCase="'excellent'">
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          <ion-icon name="star-outline" color="primary" class="fs-115rem"></ion-icon>
+        </div>
+          <!--Cuatro Estrellas y media-->
+          <div *ngSwitchCase="'excellent+'">
+            <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+            <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+            <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+            <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+            <ion-icon name="star-half" color="primary" class="fs-115rem"></ion-icon>
+          </div>
+          <!--Cinco Estrellas-->
+          <div *ngSwitchCase="'excellent++'">
+            <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+            <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+            <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+            <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+            <ion-icon name="star" color="primary" class="fs-115rem"></ion-icon>
+          </div>
+        </div>
+        <!--// Diferente visualización para las puntuaciones-->
+
+        <div id="comment-container" class="mg-top-025rem">
+          <ion-text color="secondary" class="ion-text-center fw-600">{{comment.userOpinion}}</ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!--// Fila de la foto de perfil del usuario y de la puntuación-->
+  </ion-grid>
+</ion-item>

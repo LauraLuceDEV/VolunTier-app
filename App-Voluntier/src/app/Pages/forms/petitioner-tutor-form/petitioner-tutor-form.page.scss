@@ -1,0 +1,35 @@
+.container-img-form-voluntary{
+    --background: none;
+    background-image: url('/assets/img/background1.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icon-style-form-volunt{
+    opacity: 20%;
+    margin-top: 0rem;
+    margin-right: 1rem;
+    width: 1rem;
+}
+
+
+.no-data-style{
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+.title-form{
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.ion-color-tertiary {
+    --ion-color-base: #fff6fe !important;
+    --ion-color-shade: #ffca33 !important;
+    --ion-color-tint: #ffe8bd !important;
+}
+
+.alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md {
+    background: #e6e4d5 !important;
+}

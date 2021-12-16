@@ -1,0 +1,12 @@
+[
+    {
+        "name": "CHANGE MY DATA",
+        "color": "danger",
+        "event": "changeMyData"
+    },
+    {
+        "name": "DELETE ACCOUNT",
+        "color": "primary",
+        "event": "deleteAccount"
+    }
+]

@@ -1,0 +1,12 @@
+#img_app_icon{
+    width: 10rem;
+    margin: 2rem;
+}
+
+.ion-color-tertiary {
+    --ion-color-base: #fff4d987 !important;
+    --ion-color-base-rgb: var(--ion-color-tertiary-rgb, 82, 96, 255) !important;
+    --ion-color-contrast: var(--ion-color-tertiary-contrast, #fff) !important;
+    --ion-color-contrast-rgb: var(--ion-color-tertiary-contrast-rgb, 255, 255, 255) !important;
+    --ion-color-shade: #ffbe00 !important;
+}

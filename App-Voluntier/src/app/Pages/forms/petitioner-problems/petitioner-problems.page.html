@@ -1,0 +1,168 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-button ion-button icon-only (click)="goBackPage()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Petitioner Issues</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="lighter">
+  <ion-card class="bg-white ion-text-center">
+    <!--Fila del titulo-->
+    <ion-row class="bg-img-bg2 mg-1rem ion-text-center">
+      <ion-col>
+        <p class="color-aquamarine font-tegomin2 fs-125rem fw-600 border-white">
+          CHOOSE YOUR MAIN PROBLEMS
+        </p>
+      </ion-col>
+    </ion-row>
+    <!--// Fila del titulo-->
+
+    <!--Primera Fila-->
+    <ion-row>
+      <!--Primer Elemento-->
+      <ion-col size="6" class="ion-text-center">
+        <div class="container-img" (click)="addChildrenToIssues()">
+          <div [ngClass]="{ 'circle-tag-normal': !selectedChildrens, 'circle-tag-selected': selectedChildrens }">
+            <img [src]="childrensPic" alt="I-have-children-icon">
+          </div>
+          <p class="color-aquamarine fs-1rem fw-600">I have children</p>
+        </div>
+
+      </ion-col>
+      <!--Fin Primer Elemento-->
+      <!--Segundo Elemento-->
+      <ion-col size="6" class="ion-text-center">
+        <div class="container-img" (click)="addElderlyPerson()">
+          <div
+            [ngClass]="{ 'circle-tag-normal': !selectedElderlyPerson, 'circle-tag-selected': selectedElderlyPerson }">
+            <img [src]="elderlyPersonPic" alt="I-am-an-elderly-person-icon">
+          </div>
+          <p class="color-aquamarine fs-1rem fw-600">I am an elderly person</p>
+        </div>
+      </ion-col>
+      <!--Fin Segundo Elemento-->
+    </ion-row>
+    <!--Fin Primera Fila-->
+
+    <!--Segunda Fila-->
+    <ion-row>
+      <!--Primer Elemento-->
+      <ion-col size="6" class="ion-text-center">
+        <div class="container-img" (click)="addNoTimeToIssues()">
+          <div [ngClass]="{ 'circle-tag-normal': !selectedNoTime, 'circle-tag-selected': selectedNoTime }">
+            <img [src]="noTimePic" alt="I-have-no-time-icon">
+          </div>
+          <p class="color-aquamarine fs-1rem fw-600">I have no much time</p>
+        </div>
+
+      </ion-col>
+      <!--Fin Primer Elemento-->
+      <!--Segundo Elemento-->
+      <ion-col size="6" class="ion-text-center">
+        <div class="container-img" (click)="addHealthProblemsToIssues()">
+          <div
+            [ngClass]="{ 'circle-tag-normal': !selectedHealthProblems, 'circle-tag-selected': selectedHealthProblems }">
+            <img [src]="healthProblemsPic" alt="I-have-health-problems-icon">
+          </div>
+          <p class="color-aquamarine fs-1rem fw-600">I have health problems</p>
+        </div>
+      </ion-col>
+      <!--Fin Segundo Elemento-->
+    </ion-row>
+    <!--// Fin Segunda Fila-->
+
+    <!--Tercera Fila-->
+    <ion-row>
+      <!--Primer Elemento-->
+      <ion-col size="6" class="ion-text-center">
+        <div class="container-img" (click)="addResponsabilitiesToIssues()">
+          <div
+            [ngClass]="{ 'circle-tag-normal': !selectedResponsabilities, 'circle-tag-selected': selectedResponsabilities }">
+            <img [src]="responsabilitiesPic" alt="I-have-a-lot-of-responsabilities-icon">
+          </div>
+          <p class="color-aquamarine fs-1rem fw-600">I have a lot of responabilities</p>
+        </div>
+      </ion-col>
+      <!--Fin Primer Elemento-->
+      <!--Segundo Elemento-->
+      <ion-col size="6" class="ion-text-center">
+        <div class="container-img" (click)="addNeedCaresToIssues()">
+          <div [ngClass]="{ 'circle-tag-normal': !selectedNeedCare, 'circle-tag-selected': selectedNeedCare }">
+            <img [src]="needCaresPic" alt="I-need-cares-icon">
+          </div>
+          <p class="color-aquamarine fs-1rem fw-600">I need cares</p>
+        </div>
+      </ion-col>
+      <!--Fin Segundo Elemento-->
+    </ion-row>
+    <!--// Fin Tercera Fila-->
+
+    <!--Cuarta Fila-->
+    <ion-row>
+      <!--Primer Elemento-->
+      <ion-col size="6" class="ion-text-center">
+        <div class="container-img" (click)="addLiveAloneToIssues()">
+          <div [ngClass]="{ 'circle-tag-normal': !selectedHomeAlone, 'circle-tag-selected': selectedHomeAlone }">
+            <img [src]="homeAlonePic" alt="I-live-alone-icon">
+          </div>
+          <p class="color-aquamarine fs-1rem fw-600">I live alone</p>
+        </div>
+
+      </ion-col>
+      <!--Fin Primer Elemento-->
+      <!--Segundo Elemento-->
+      <ion-col size="6" class="ion-text-center">
+        <div class="container-img" (click)="addNeedHelpWithHomeworkToIssues()">
+          <div [ngClass]="{ 'circle-tag-normal': !selectedHomeworkHelp, 'circle-tag-selected': selectedHomeworkHelp }">
+            <img [src]="homeworkHelpPic" alt="I-need-help-with-homework-icon">
+          </div>
+          <p class="color-aquamarine fs-1rem fw-600">I need help with homework</p>
+        </div>
+      </ion-col>
+      <!--Fin Segundo Elemento-->
+    </ion-row>
+    <!--// Fin Cuarta Fila-->
+
+    <!--Quinta Fila-->
+    <ion-row>
+      <!--Primer Elemento-->
+      <ion-col size="6" class="ion-text-center">
+        <div class="container-img" (click)="addReducedMobilityToIssues()">
+          <div
+            [ngClass]="{ 'circle-tag-normal': !selectedReducedMobility, 'circle-tag-selected': selectedReducedMobility }">
+            <img [src]="reducedMobilityPic" alt="I-have-reduced-mobility-icon">
+          </div>
+          <p class="color-aquamarine fs-1rem fw-600">I have reduced mobility</p>
+        </div>
+
+      </ion-col>
+      <!--Fin Primer Elemento-->
+      <!--Segundo Elemento-->
+      <ion-col size="6" class="ion-text-center">
+        <div class="container-img" (click)="addFeelingLonelyToIssues()">
+          <div [ngClass]="{ 'circle-tag-normal': !selectedFeelLonely, 'circle-tag-selected': selectedFeelLonely }">
+            <img id="img-buying" [src]="feelLonelyPic" alt="I-feel-lonely-icon">
+          </div>
+          <p class="color-aquamarine fs-1rem fw-600">I feel lonely</p>
+        </div>
+      </ion-col>
+      <!--Fin Segundo Elemento-->
+    </ion-row>
+    <!--// Fin Quinta Fila-->
+
+    <!--Boton Continuar-->
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="success"
+          (click)="goToPetitionerFinalForm()">
+          <p>CONTINUE</p>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <!--// Boton Continuar-->
+  </ion-card>
+</ion-content>

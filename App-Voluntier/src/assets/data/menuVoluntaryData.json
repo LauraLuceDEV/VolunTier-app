@@ -1,0 +1,27 @@
+[
+    {
+        "icon": "fas fa-comments",
+        "name": "My Messages",
+        "event": "goToMessage"
+    },
+    {
+        "icon": "fas fa-tasks",
+        "name": "My Tasks",
+        "event": "goToTask"
+    },
+    {
+        "icon": "fas fa-search",
+        "name": "Search Tasks",
+        "event": "goToSearchTask"
+    },
+    {
+        "icon": "fas fa-user-edit",
+        "name": "Edit Profile",
+        "event": "goToEditProfile"
+    },
+    {
+        "icon": "fas fa-door-open",
+        "name": "Log out",
+        "event": "goToSignOff"
+    }
+]

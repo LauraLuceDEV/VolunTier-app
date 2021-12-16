@@ -1,0 +1,21 @@
+[
+    {
+        "userProfileImageRoute": "../../../assets/img/mas-user-icon.png",
+        "userName": "Paolo Pantalena",
+        "userValoration": "nice+",
+        "userOpinion": "Great deal! I hope coincide again with this person"
+    },
+
+    {
+        "userProfileImageRoute": "../../../assets/img/fem-user-icon.png",
+        "userName": "Ana Morales",
+        "userValoration": "excellent",
+        "userOpinion": "Great deal! I hope coincide again with this person"
+    },
+    {
+        "userProfileImageRoute": "../../../assets/img/user-icon.png",
+        "userName": "Juan Soto",
+        "userValoration": "superbad",
+        "userOpinion": "Great deal! I hope coincide again with this person"
+    }
+]

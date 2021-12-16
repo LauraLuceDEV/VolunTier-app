@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button ion-button icon-only (click)="goBackPage()">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="fs-1rem fw-500">CHOOSING TUTOR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content text-center class="vertical-align-content" color="tertiary">
+  <ion-card class="bg-white ion-text-center">
+    <ion-grid>
+      <!--Imagen-->
+      <ion-row>
+        <ion-col>
+          <img
+            id="img-splash-icon"
+            src="assets/img/help-ppl.png"
+            alt="tutor img"
+          />
+        </ion-col>
+      </ion-row>
+      <!--// Imagen -->
+      <!--Descripción-->
+      <ion-row>
+        <ion-col>
+          <p class="color-dark-blue fw-500">
+            As we know, many people don´t know how a mobile application works.
+            So, if you have someone to trust and to guide you as a tutor here,
+            <span class="color-aquamarine fw-600">MUCH BETTER!</span>
+          </p>
+        </ion-col>
+      </ion-row>
+      <!--// Descripción-->
+      <!--Botones-->
+      <ion-row>
+        <ion-button
+          expand="block"
+          size="large"
+          class="radio-button mg-075rem text-align-center wkfill-available-wdt"
+          color="warning"
+          value="true"
+          #btnYesTutor
+          (click)="this.changePetitionerHasTutor();">
+          <p>Yes, I need a tutor</p>
+        </ion-button>
+      </ion-row>
+      <ion-row>
+        <ion-button
+          expand="block"
+          size="large"
+          class="radio-button mg-075rem text-align-center wkfill-available-wdt"
+          color="success"
+          value="false"
+          #btnNoTutor
+          (click)="this.changePetitionerHasNoTutor()">
+          <p>I know how to use an app</p>
+        </ion-button>
+      </ion-row>
+      <!--// Botones-->
+    </ion-grid>
+  </ion-card>
+</ion-content>

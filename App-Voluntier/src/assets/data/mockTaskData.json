@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Task-Test1",
+        "description": "blablablablabla",
+        "creationDate": "11/12/2021",
+        "category": "shopping",
+        "city": "Pueblo Paleta",
+        "petitionarId": "01",
+        "voluntaryId": "01",
+        "state": "done"
+    },
+    {
+        "name": "Task-Test2",
+        "description": "blablablablabla",
+        "creationDate": "11/12/2021",
+        "category": "shopping",
+        "city": "Pueblo Paleta",
+        "petitionarId": "01",
+        "voluntaryId": "01",
+        "state": "in-progress"
+    },
+    {
+        "name": "Task-Test3",
+        "description": "blablablablabla",
+        "creationDate": "11/12/2021",
+        "category": "shopping",
+        "city": "Pueblo Paleta",
+        "petitionarId": "01",
+        "voluntaryId": "01",
+        "state": "unassigned"
+    }
+]

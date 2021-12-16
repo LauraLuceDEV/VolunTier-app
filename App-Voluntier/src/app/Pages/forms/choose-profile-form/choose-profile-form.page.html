@@ -1,0 +1,36 @@
+<!--Página dónde se elige el tipo de usuario: Voluntario/Voluntary o Solicitante/Petitioner-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button ion-button icon-only (click)="goBackPage()">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>CHOOSING PROFILE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content text-center class="vertical-align-content" color="tertiary">
+  <ion-card class="bg-white ion-text-center">
+    <ion-grid>
+      <ion-row>
+          <ion-col>
+              <div id="profile-description">
+                <p class="color-aquamarine font-tegomin2 fs-1rem fw-600 border-white">PLEASE, CHOOSE WHICH PROFILE TYPE IS THE MOST SUITABLE FOR YOU</p>
+              </div>
+        
+              <div id="choose-profile-buttons-container" class="container">
+              <ion-button expand="full" class="radio-button mg-075rem text-align-center btn-bigger" color="danger" (click)="goToVoluntaryForm()">
+                <p>VOLUNTARY</p>
+              </ion-button>
+          
+              <ion-button expand="full" class="radio-button mg-075rem text-align-center btn-bigger" color="success" (click)="goToPetitionerForm()">
+                <p>PETITIONER</p>
+              </ion-button>  
+            </div>
+          </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-card>
+</ion-content>

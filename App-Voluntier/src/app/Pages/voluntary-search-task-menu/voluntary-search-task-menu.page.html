@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button ion-button icon-only (click)="goBackPage()">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Search Task Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="this.showFilterComponent; then showFilterTemplate else showFilterButtonTemplate">
+    Dependiendo del tipo de susario cambiará el color de la página y sus componentes
+  </div>
+
+<!--Componente de filtrado de tareas-->
+  <ng-template #showFilterTemplate>
+    <search-menu-filter></search-menu-filter>
+  </ng-template>
+
+  <!--Componente listado de tareas de búsqueda-->
+  <task-list-search></task-list-search>
+
+  <ng-template #showFilterButtonTemplate>
+    <ion-fab vertical="bottom" horizontal="center" class="center-button-width" slot="fixed">
+    <ion-button color="warning" style="text-align:center" class="fab-btn" expand="full" shape="round" (click)="showFilterTemplateComponent()">FILTER</ion-button>
+    </ion-fab>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,31 @@
+<!--Dependiendo de la puntiacion que tenga el usuario, aparecera una representación gráfica de ésta u otra.
+Aparecerá en la página del perfil de éste-->
+<ion-card-title *ngIf="mediaScoreString">
+  {{mediaScoreString}} PUNCTUATION
+</ion-card-title>
+
+<ion-card-title *ngIf="!mediaScoreString">
+  NO PUNCTUATION
+</ion-card-title>
+
+<div [ngSwitch]="mediaScore">
+  <div *ngSwitchCase="1">
+    <img class="img-size" src="../../../assets/img/bad.png">
+  </div>
+
+  <div *ngSwitchCase="2">
+    <img class="img-size" src="../../../assets/img/has-to-improve.png">
+  </div>
+
+  <div *ngSwitchCase="3">
+    <img class="img-size" src="../../../assets/img/nice.png">
+  </div>
+
+  <div *ngSwitchCase="4">
+    <img class="img-size" src="../../../assets/img/very-nice.png">
+  </div>
+
+  <div *ngSwitchCase="5">
+    <img class="img-size" src="../../../assets/img/excellent.png">
+  </div>
+</div>

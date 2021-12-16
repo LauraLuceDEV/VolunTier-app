@@ -1,0 +1,229 @@
+<ion-header>
+  <!--Estilo del header-->
+  <div *ngIf="userType === 'voluntary'; then voluntaryTemplate else petitionerTemplate">
+    Dependiendo del tipo de susario cambiará el color de la página y sus componentes
+  </div>
+  <!--Estilo para los voluntarios-->
+  <ng-template #voluntaryTemplate>
+    <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+        <ion-button ion-button icon-only (click)="goBackPage()">
+          <ion-icon name="arrow-back-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{styleForm}}</ion-title>
+    </ion-toolbar>
+  </ng-template>
+  <!--// Estilo para los voluntarios-->
+
+  <!--Estilo para los solicitantes-->
+  <ng-template #petitionerTemplate>
+    <ion-toolbar color="success">
+      <ion-buttons slot="start">
+        <ion-button ion-button icon-only (click)="goBackPage()">
+          <ion-icon name="arrow-back-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{styleForm}}</ion-title>
+    </ion-toolbar>
+  </ng-template>
+  <!--// Estilo para los solicitantes-->
+<!--// Estilo del header-->
+</ion-header>
+
+<ion-content color="tertiary">
+  <ion-card class="bg-white ion-text-center">
+    <ion-grid>
+      <!--FORMULARIO-->
+      <form [formGroup]="principalDataForm">
+      <!--Aqui irá de fondo la imagen-->
+      <div class="container-img-form-voluntary">
+        <!--NOMBRE-->
+      <ion-row>
+        <ion-col>
+          <p class="color-dark-brown title-form">PERSONAL DATA</p>
+          <ion-item color="tertiary">
+            <ion-icon name="person-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input *ngIf="currentUser" class="color-dark-brown" maxlength="30" formControlName="name"></ion-input>
+            <ion-input *ngIf="!currentUser" placeholder="Name" class="color-dark-brown" maxlength="30" formControlName="name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--FIN NOMBRE-->
+
+      <!--APELLIDOS-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="person-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input *ngIf="currentUser" class="color-dark-brown" formControlName="surname"></ion-input>
+            <ion-input *ngIf="!currentUser" placeholder="Surname" class="color-dark-brown" formControlName="surname"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--FIN APELLIDOS-->
+      </div>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+        <ion-label class="color-dark-brown" position="floating">Birthdate</ion-label>
+        <ion-datetime *ngIf="currentUser" [(ngModel)]="currentUser.birthdate" class="color-dark-brown" displayFormat="DD/MM/YYYY" min="1930-01-01" max="2010-01-01" formControlName="birthdate"></ion-datetime>
+        <ion-datetime *ngIf="!currentUser" class="color-dark-brown" displayFormat="DD/MM/YYYY" min="1930-01-01" max="2010-01-01" value="2003-01-01" formControlName="birthdate"></ion-datetime>
+      </ion-item>
+      </ion-col>
+      </ion-row>
+
+      <!--SEXO-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="transgender-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-label class="color-dark-brown">SEX</ion-label>
+              <ion-select *ngIf="currentUser" [(ngModel)]="currentUser.sex" value="No choosen" multiple="false" class="color-dark-brown" formControlName="sex">
+                <ion-select-option *ngFor="let sex of typeSexList" value="{{sex}}">{{sex}}</ion-select-option>
+              </ion-select>
+
+              <ion-select *ngIf="!currentUser" multiple="false" class="color-dark-brown" formControlName="sex">
+                <ion-select-option *ngFor="let sex of typeSexList" value="{{sex}}">{{sex}}</ion-select-option>
+              </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--FIN SEXO-->
+
+
+      <!--PHONE NUMBER-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="phone-portrait-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input *ngIf="currentUser" type="number" class="color-dark-brown" formControlName="phoneNumber"></ion-input>
+            <ion-input *ngIf="!currentUser" type="number" placeholder="Phone Number" class="color-dark-brown" formControlName="phoneNumber"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--FIN PHONE NUMBER-->
+
+      <!--DNI-->
+      <ion-row *ngIf="styleForm === 'Registration'" >
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="card-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input *ngIf="!currentUser" type="text" placeholder="ID Card Number" class="color-dark-brown" formControlName="ID"></ion-input>
+          </ion-item>
+          <div>
+            <p class="color-aquamarine no-data-style" (click)="presenID_Information()">I DO NOT WANT TO GIVE THIS DATA</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!--FIN DNI-->
+
+
+      <!--DIRECCION-->
+      <!--PAIS-->
+      <ion-row>
+        <ion-col>
+          <p class="color-dark-brown title-form">ADDRESS DATA</p>
+          <ion-item color="tertiary">
+            <ion-icon name="location-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-label class="color-dark-brown">COUNTRY</ion-label>
+            <ion-select *ngIf="currentUser" (ionChange)="onChangeCountry($event)" value="currentUser?.address.country" class="color-dark-brown" formControlName="country">
+              <ion-select-option *ngFor="let country of countries" value="{{country}}">{{country}}</ion-select-option>
+            </ion-select>
+
+            <ion-select *ngIf="!currentUser" (ionChange)="onChangeCountry($event)" value="Spain" class="color-dark-brown" formControlName="country">
+              <ion-select-option *ngFor="let country of countries" value="{{country}}">{{country}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--FIN PAIS-->
+
+      <!--CIUDAD-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="star" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input *ngIf="currentUser" class="color-dark-brown" formControlName="city"></ion-input>
+            <ion-input *ngIf="!currentUser" placeholder="City" class="color-dark-brown" formControlName="city"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--FIN CIUDAD-->
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="tertiary">
+              <ion-icon name="location-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+              <ion-input *ngIf="currentUser" class="color-dark-brown" formControlName="address"></ion-input>
+              <ion-input *ngIf="!currentUser" placeholder="Complete Address" class="color-dark-brown" formControlName="address"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!--FIN DIRECCION-->
+
+        <!--CÓDIGO POSTAL-->
+        <ion-row>
+          <ion-col>
+            <ion-item color="tertiary">
+              <ion-icon name="location-outline" class="color-dark-brown icon-style-form-volunt"></ion-icon>
+              <ion-input *ngIf="currentUser" class="color-dark-brown" formControlName="postalCode"></ion-input>
+              <ion-input *ngIf="!currentUser" placeholder="PostCode" class="color-dark-brown" formControlName="postalCode"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!--//CÓDIGO POSTAL-->
+      </form><!--// FORMULARIO -->
+    </ion-grid>
+
+
+    <!--BOTÓN COMPLETAR FORMULARIO-->
+    <ion-row>
+      <ion-col>
+        <div *ngIf="styleForm === 'Registration'; then registrationTemplate else updateTemplate"></div>
+        <!--Modo estilo registro-->
+        <ng-template #registrationTemplate>
+          <div *ngIf="userType === 'voluntary'; then voluntaryContinueButtonColorTemplate else petitionerContinueButtonColorTemplate"></div>
+          <!--Estilo voluntario-->
+          <ng-template #voluntaryContinueButtonColorTemplate>
+            <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="danger" (click)="goToNextForm()">
+              <p>CONTINUE</p>
+            </ion-button>
+          </ng-template>
+          <!--// Estilo voluntario-->
+          <!--Estilo solicitante-->
+          <ng-template #petitionerContinueButtonColorTemplate>
+            <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="success" (click)="goToNextForm()">
+              <p>CONTINUE</p>
+            </ion-button>
+          </ng-template>
+          <!--//Estilo solicitante-->
+        </ng-template>
+        <!--// Modo estilo  registro-->
+
+        <!--Modo estilo actualizar datos-->
+        <ng-template #updateTemplate>
+          <div *ngIf="userType === 'voluntary'; then voluntaryUpdateButtonColorTemplate else petitionerUpdateButtonColorTemplate"></div>
+        <!--Modo voluntario-->
+        <ng-template #voluntaryUpdateButtonColorTemplate>
+          <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="danger" (click)="updateData()">
+            <p>SAVE CHANGES</p>
+          </ion-button>
+        </ng-template>
+        <!--// Modo voluntario-->
+        <!--Modo solicitante-->
+        <ng-template #petitionerUpdateButtonColorTemplate>
+          <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="success" (click)="updateData()">
+            <p>SAVE CHANGES</p>
+          </ion-button>
+        </ng-template>
+        <!--// Modo solicitante-->
+        </ng-template>
+        <!--// Modo estilo actualizar datos-->
+      </ion-col>
+    </ion-row>
+    <!--FIN BOTÓN COMPLETAR FORMULARIO-->
+  </ion-card>
+</ion-content>

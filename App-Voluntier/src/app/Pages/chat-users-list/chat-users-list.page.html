@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar  [color]="userType === 'voluntary' ? 'danger' : 'success'">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBackPage()">
+        <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>My Messages</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-chat-user-panel></app-chat-user-panel>
+</ion-content>

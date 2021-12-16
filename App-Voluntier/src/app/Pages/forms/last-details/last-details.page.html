@@ -1,0 +1,75 @@
+<!--Último formulario, depués de este subiremos los datos de nuestro usuario a la Base de Datos de Firebase-->
+<ion-header>
+  <div *ngIf="userType === 'voluntary'; then voluntaryTemplate else petitionerTemplate">
+    Dependiendo del tipo de susario cambiará el color de la página y sus componentes
+  </div>
+  <ng-template #voluntaryTemplate>
+    <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+        <ion-button ion-button icon-only (click)="goBackPage()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Last Details</ion-title>
+    </ion-toolbar>
+  </ng-template>
+
+  <ng-template #petitionerTemplate>
+    <ion-toolbar color="success">
+      <ion-buttons slot="start">
+        <ion-button ion-button icon-only (click)="goBackPage()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Last Details</ion-title>
+    </ion-toolbar>
+  </ng-template>
+</ion-header>
+  
+  <ion-content  color="tertiary">
+    <ion-card class="bg-white ion-text-center">
+      <ion-grid>
+         <!--Fila del titulo-->
+         <div id="container-img-profile-pic">
+          <ion-row class="ion-align-items-center bg-img-bg2 mg-1rem">
+            <ion-col>
+              <p class="color-aquamarine font-tegomin2 fs-115rem fw-600 border-white">CHOOSE A PIC AND WRITE A BRIEF BRIOGAPHY</p>
+              <div id="img-avatar-container" (click)="uploadImage()">
+                <img id="profile-img"class="rounded-img3" src="{{imageProfile}}" alt="Profile pic">
+              </div>
+            </ion-col>
+          </ion-row>  
+          <ion-row>
+            <ion-col>
+              <!-- Textarea with custom number of rows and cols -->
+              <ion-textarea #biography class="bg-white color-dark-blue fs-1rem fw-600" rows="6" cols="20" placeholder="{{userBioExample}}" maxlength="200">
+              </ion-textarea>
+            </ion-col>
+          </ion-row>
+         </div>
+  
+         <!--BOTÓN COMPLETAR FORMULARIO-->
+         <ion-row>
+           <ion-col>
+             <!-- Opción para el color del botón -->
+             <div *ngIf="userType === 'voluntary'; then voluntaryButtonTemplate else petitionerButtonTemplate"></div>
+
+             <ng-template #voluntaryButtonTemplate>
+              <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="danger" (click)="goToProfilePage(biography.value)">
+                <p>CONTINUE</p>
+              </ion-button>
+             </ng-template>
+
+             <ng-template #petitionerButtonTemplate>
+              <ion-button expand="block" class="radio-button mg-075rem text-align-center" color="success" (click)="goToProfilePage(biography.value)">
+                <p>CONTINUE</p>
+              </ion-button>
+             </ng-template>
+             
+           </ion-col>
+         </ion-row>
+         <!--FIN BOTÓN COMPLETAR FORMULARIO-->
+      </ion-grid>
+      </ion-card>
+  </ion-content>
+  

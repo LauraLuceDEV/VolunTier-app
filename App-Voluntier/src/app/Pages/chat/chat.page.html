@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar [color]="userType === 'voluntary' ? 'danger' : 'success'">
+    <ion-title>Chat</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBackPage()">
+        <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-grid>
+    <ion-row *ngFor="let message of messages | async">
+      <ion-col size="9" class="message"
+        [offset]="message.myMsg ? 3 : 0"
+        [ngClass]="{ 'my-message': message.myMsg, 'other-message': !message.myMsg }">
+        <b class="fs-075rem" style="color: rgb(39, 6, 29);">{{ message?.emitterName }}</b><br>
+        <p class="fw-500 mg-025rem">{{ message?.content }}</p>
+        <div class="time ion-text-right"><br>{{ message?.createdAt?.toDate()| date:'short' }}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="10">
+        <ion-textarea autoGrow="true" class="message-input" rows="1" maxLength="500" [(ngModel)]="msgContent" >
+        </ion-textarea>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button expand="block" fill="clear" color="primary" [disabled]="msgContent === ''"
+          class="msg-btn" (click)="sendMessage()">
+          <ion-icon name="send" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

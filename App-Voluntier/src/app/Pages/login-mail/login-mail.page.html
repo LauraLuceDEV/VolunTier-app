@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button ion-button icon-only (click)="goBackPage()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Login Mail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="bg-white ion-text-center h-100">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img id="img_app_icon" src="assets/img/icono.png" alt="imagen de la app"/>
+        </ion-col>
+      </ion-row>
+       <!--FORMULARIO-->
+       <form [formGroup]="this.userMailDataForm">
+         <!--Email-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="person-outline" class="mg-right-1rem color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input type="mail" placeholder="your_email@mail.com" class="color-dark-brown" formControlName="email" #email></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--//email-->
+      <!--password-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-icon name="person-outline" class="mg-right-1rem color-dark-brown icon-style-form-volunt"></ion-icon>
+            <ion-input type="password" placeholder="******" class="color-dark-brown" formControlName="password" #password></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--// password-->
+        </form><!--// FORMULARIO-->
+
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" class="radio-button mg-075rem text-align-center h-3rem" color="warning" (click)="singInMail(email.value.toString(), password.value.toString())">
+              <ion-icon name="person-circle-outline" class="mg-075rem mg-right-1rem"></ion-icon>
+              <p>SIGN IN</p>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" class="radio-button mg-075rem text-align-center h-3rem" color="warning" fill="outline" (click)="singUpMail(email.value.toString(), password.value.toString())">
+              <ion-icon name="log-in-outline" class="mg-075rem mg-right-1rem"></ion-icon>
+              <p>SIGN UP</p>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+    </ion-grid>
+    </ion-card>
+</ion-content>

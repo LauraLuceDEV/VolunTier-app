@@ -1,0 +1,141 @@
+<ion-header>
+  <!--Estilo del header-->
+  <div *ngIf="userType === 'voluntary'; then voluntaryTemplate else petitionerTemplate">
+    Dependiendo del tipo de susario cambiará el color de la página y sus componentes
+  </div>
+  <!--Estilo para los voluntarios-->
+  <ng-template #voluntaryTemplate>
+    <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+        <ion-button (click)="goBackPage()">
+          <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="openSideBarMenu()">
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Profile</ion-title>
+    </ion-toolbar>
+  </ng-template>
+  <!--// Estilo para los voluntarios-->
+
+  <!--Estilo para los solicitantes-->
+  <ng-template #petitionerTemplate>
+    <ion-toolbar color="success">
+        <ion-buttons slot="start">
+          <ion-button (click)="goBackPage()">
+            <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="openSideBarMenu()">
+            <ion-icon slot="icon-only" name="menu"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>{{userName}} Profile</ion-title>
+      </ion-toolbar>
+  </ng-template>
+  <!--// Estilo para los solicitantes-->
+<!--// Estilo del header-->
+</ion-header>
+
+<ion-content>
+  <ion-card class="bg-white ion-text-center">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+            <ion-avatar class="container-profile-pic">
+              <ion-img class="rounded-img3 profile-img-size mg-top--2rem" src="{{userProfilePhoto}}"></ion-img>
+            </ion-avatar>
+        </ion-col>
+        <ion-col size="6">
+          <div id="name-qualities-container">
+
+            <!--Estilo para el color del nombre del usuario-->
+            <div *ngIf="userType === 'voluntary'; then voluntaryTemplateName else petitionerTemplateName"></div>
+            <ng-template #voluntaryTemplateName>
+              <div>
+                <ion-label class="text-align-center fw-500 fs-15rem" color="danger">{{userName}} {{userSurname}}</ion-label>
+              </div>
+            </ng-template>
+            <ng-template #petitionerTemplateName>
+              <div>
+                <ion-label class="text-align-center fw-500 fs-15rem" color="secondary">{{userName}} {{userSurname}}</ion-label>
+              </div>
+            </ng-template>
+            <!--// Estilo para el color del nombre del usuario-->
+          
+          <!--Container - Cualidades  img -->
+          <div id="container-quality-items">
+            <div class="container-img" *ngFor="let item of qualities">
+              <img class="img-item" [src]="item" alt="quality-img">
+            </div>
+          </div>
+          <!--// Container - Cualidades  img -->
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!--Biografia-->
+      <ion-row>
+        <ion-col>
+          <ion-item color="light" class="text-align-center">
+            <ion-text color="secondary" class="fw-600">
+              <p>{{userBiography}}</p>
+            </ion-text>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--// Biografia-->
+      <ion-row>
+      <!--Estilo de la barra de opciones-->
+      <div *ngIf="userType === 'voluntary'; then voluntaryTemplateOptions else petitionerTemplateOptions"></div>
+      <!--Estilo para voluntario-->
+      <ng-template #voluntaryTemplateOptions>
+        <ion-col>
+          <ion-item color="danger">
+            <ion-col size="6" id="punctuation-col" class="text-align-left" (click)="showPuntuationToggle()">
+              <p>Puntuation</p>
+            </ion-col>
+            <ion-col size="6" id="comments-col" class="text-align-right" (click)="showCommentsToggle()">
+              <p>Comments</p>
+            </ion-col>
+          </ion-item>
+        </ion-col>
+      </ng-template>
+      <!--// Estilo para voluntario-->
+
+      <!--Estilo para solicitante-->
+      <ng-template #petitionerTemplateOptions>
+        <ion-col>
+          <ion-item color="success">
+            <ion-col size="6" id="punctuation-col" class="text-align-left" (click)="showPuntuationToggle()">
+              <p>Puntuation</p>
+            </ion-col>
+            <ion-col size="6" id="comments-col" class="text-align-right" (click)="showCommentsToggle()">
+              <p>Comments</p>
+            </ion-col>
+          </ion-item>
+        </ion-col>
+      </ng-template>
+      <!--// Estilo para solicitante-->
+      <!--// Estilo de la barra de opciones -->
+      </ion-row>
+
+      <!--Puntuaciones del usuario-->
+      <ion-row *ngIf="showPuntuation">
+        <user-puntuation-component [userMediaScore]=mediaScore></user-puntuation-component>
+      </ion-row>
+      <!--// Puntuaciones del usuario-->
+
+      <!--Comentarios del usuario-->
+      <ion-row *ngIf="showComments">
+        <profile-comments (numberOfCommentsEmitter)="checkCommentsQuantity($event)"></profile-comments>
+      </ion-row>
+      <!--// Comentarios del usuario-->
+      
+    </ion-grid>
+    </ion-card>
+</ion-content>

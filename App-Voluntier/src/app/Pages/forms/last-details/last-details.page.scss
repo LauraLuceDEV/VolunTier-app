@@ -1,0 +1,34 @@
+#container-img-profile-pic{--background: none;
+    background-image: url('/assets/img/background1.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div#img-avatar-container {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 15px;  
+}
+
+#profile-img{
+    height: 13rem;
+    width: 13rem;
+    object-fit: cover;
+    border: 0.25rem solid #ffe4e4;
+}
+
+#row-upload-image{
+    margin-top: -2.5rem;
+}
+
+
+/*SobreEscribir clases*/
+.item-native {
+    background-color: white !important;
+    padding-left: unset;
+    padding-right: unset;
+    padding-inline-start: calc(var(--padding-start) + var(--ion-safe-area-left, 0px));
+    padding-inline-end: var(--padding-end);
+}

@@ -1,0 +1,35 @@
+ion-row.md.hydrated {
+    place-content: center;
+}
+
+
+#data-container {
+    background-color: #d5e0e785;
+    border: solid 1px #35435ab3;
+    border-radius: 15px;
+    padding: 0.5rem;
+}
+
+#puntuation-container{
+    margin-top: 1rem;
+    border: solid 1px #35435ab3;
+    border-radius: 15px;
+    padding: 0.5rem;
+}
+
+.no-effect {
+    --box-shadow: transparent !important;
+}
+
+.text-area-style{
+    background-color: #d5e0e785;
+    border: solid 1px #35435ab3;
+    padding: 0.5rem;
+}
+
+.display-block:host {
+    display: block !important;
+}
+
+
+
